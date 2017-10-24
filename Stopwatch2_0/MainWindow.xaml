@@ -1,0 +1,55 @@
+﻿<Window x:Class="Stopwatch2_0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stopwatch2_0"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Name="mFileSaveAs" Header="Save _As ..." Click="mFileSaveAs_Click" />
+                <Separator/>
+                <MenuItem Name="mFileExit" Header="E_xit" Click="mFileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Name="mToolsOptions" Header="Options..." Click="mToolsOptions_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Name="mHelpAbout" Header="_About" Click="mHelpAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="txtSplitTimesCount">Split times count: 0</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="lstSplitTimes" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Button Name="btnStart" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0" Content="Start" Click="btnStart_Click"/>
+            <Button Name="btnAdd" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1" Content="Add" Click="btnAdd_Click"/>
+            <Button Name="btnStop" Margin="5,5,5,5" Grid.Row="2" Grid.Column="0" IsEnabled="False" Click="btnStop_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Margin="5" Width="10" Height="10" Fill="Black"/>
+                    <TextBlock Text="Stop"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnReset" Margin="5,5,5,5" Grid.Row="2" Grid.Column="1" Content="Reset" Click="btnReset_Click"/>
+        </Grid>
+        <Grid Name="grdDisplay" Background="White">
+            <Viewbox>
+                <TextBlock Name="txtDisplay">00:00:00:00</TextBlock>
+            </Viewbox>
+        </Grid>
+    </DockPanel>
+</Window>

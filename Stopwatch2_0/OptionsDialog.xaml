@@ -1,0 +1,39 @@
+﻿<Window x:Class="Stopwatch2_0.OptionsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stopwatch2_0"
+        xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="OptionsDialog" Height="300" Width="300">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button IsDefault="True" Name="btnOk" Width="{Binding ElementName=btnCancel, Path=ActualWidth}" Click="btnOk_Click">OK</Button>
+            <Button IsCancel="True" Name="btnCancel">Cancel</Button>
+        </StackPanel>
+        <TabControl Margin="10" Padding="10">
+            <TabItem Header="General">
+                <Grid>
+                    <CheckBox Name="chbStartStopInSplitTimes">Add Start and Stop time in Split Times</CheckBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="View">
+                <Grid MaxWidth="250">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Foreground color:</Label>
+                    <xceed:ColorPicker Name="clpDisplayForegroundColor" Grid.Row="0" Grid.Column="1"/>
+                    <Label Grid.Row="1" Grid.Column="0">Background color:</Label>
+                    <xceed:ColorPicker Name="clpDisplayBackgroundColor" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
